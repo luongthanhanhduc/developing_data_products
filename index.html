@@ -1,52 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Visualization of some basic social-economic indicators</title>
-  <meta charset="utf-8">
-  <meta name="description" content="Visualization of some basic social-economic indicators">
-  <meta name="author" content="Duc Thanh Anh Luong">
-  <meta name="generator" content="slidify" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
-    media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-
+	<meta charset='utf-8'>
+	<title>Visualization of some basic social-economic indicators</title>
+	<meta name="description" content="Visualization of some basic social-economic indicators">
+	<meta name="author" content="Duc Thanh Anh Luong">
+	<meta name="generator" content="slidify" />
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
   
-  <!-- Grab CDN jQuery, fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="libraries/frameworks/io2012/js/slides" 
-    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
-  </script>
-  
-  
-
 </head>
-<body style="opacity: 0">
-  <slides class="layout-widescreen">
-    
-    <!-- LOGO SLIDE -->
-        <slide class="title-slide segue nobackground">
-  <hgroup class="auto-fadein">
-    <h1>Visualization of some basic social-economic indicators</h1>
-    <h2></h2>
-    <p>Duc Thanh Anh Luong<br/></p>
-  </hgroup>
-  <article></article>  
-</slide>
-    
-
-    <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Getting and Cleaning Data</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>The dataset was collected using the package <a href="https://cran.r-project.org/web/packages/WDI/WDI.pdf"><code>WDI</code></a>. There are 5 indicators we collected for this dataset: </p>
+<body style='display: none'>
+	<section class='slides layout-regular template-regular'>
+     <article class="" id="slide-1" style="background:;">
+  <h3>Getting and Cleaning Data</h3>
+  <p>The dataset was collected using the package <a href="https://cran.r-project.org/web/packages/WDI/WDI.pdf"><code>WDI</code></a>. There are 5 indicators we collected for this dataset: </p>
 
 <ol>
 <li>GDP per capita (current US dollar)</li>
@@ -56,16 +26,11 @@
 <li>total population</li>
 </ol>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</article>
 
-<slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>Summary of the dataset</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Details about how we collected and clean the data can be found from the <a href="https://ducluong.shinyapps.io/visualization_social_economic_indicator/">documentation</a> in the website</p>
+<article class="" id="slide-2" style="background:;">
+  <h3>Summary of the dataset</h3>
+  <p>Details about how we collected and clean the data can be found from the <a href="https://ducluong.shinyapps.io/visualization_social_economic_indicator/">documentation</a> in the website</p>
 
 <pre><code>##    country               year        population        GDP per capita    
 ##  Length:11984       Min.   :1960   Min.   :4.279e+03   Min.   :     0.0  
@@ -93,16 +58,11 @@
 ## 
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</article>
 
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Visualization with World Map</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Visualization of GDP per capita (current US dollar) at 2010</p>
+<article class="" id="slide-3" style="background:;">
+  <h3>Visualization with World Map</h3>
+  <p>Visualization of GDP per capita (current US dollar) at 2010</p>
 
 <pre><code>## Creating a generic function for &#39;toJSON&#39; from package &#39;jsonlite&#39; in package &#39;googleVis&#39;
 </code></pre>
@@ -114,14 +74,14 @@ print(map, &quot;chart&quot;)
 
 <!-- GeoChart generated in R 3.3.1 by googleVis 0.6.0 package -->
 
-<!-- Fri Aug 12 00:22:33 2016 -->
+<!-- Fri Aug 12 00:29:13 2016 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartIDe9233b5cbae () {
+function gvisDataGeoChartIDece4ec8ce83 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -989,15 +949,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartIDe9233b5cbae() {
-var data = gvisDataGeoChartIDe9233b5cbae();
+function drawChartGeoChartIDece4ec8ce83() {
+var data = gvisDataGeoChartIDece4ec8ce83();
 var options = {};
 options["width"] = [556];
 options["height"] = [347];
 options["projection"] = ["kavrayskiy-vii"];
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartIDe9233b5cbae')
+    document.getElementById('GeoChartIDece4ec8ce83')
     );
     chart.draw(data,options);
     
@@ -1021,9 +981,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartIDe9233b5cbae);
+callbacks.push(drawChartGeoChartIDece4ec8ce83);
 })();
-function displayChartGeoChartIDe9233b5cbae() {
+function displayChartGeoChartIDece4ec8ce83() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1049,25 +1009,20 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartIDe9233b5cbae"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartIDece4ec8ce83"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoChartIDe9233b5cbae" 
+<div id="GeoChartIDece4ec8ce83" 
   style="width: 556; height: 347;">
 </div>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</article>
 
-<slide class="" id="slide-4" style="background:;">
-  <hgroup>
-    <h2>Data visualization for specific country</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Visualization of GDP growth of Vietnam</p>
+<article class="" id="slide-4" style="background:;">
+  <h3>Data visualization for specific country</h3>
+  <p>Visualization of GDP growth of Vietnam</p>
 
 <pre><code class="r">chart &lt;- gvisColumnChart(data = country_data[country_data$country == &quot;Vietnam&quot;, ], 
                          xvar = &quot;year&quot;, yvar = &quot;GDP growth&quot;)
@@ -1076,14 +1031,14 @@ print(chart, &quot;chart&quot;)
 
 <!-- ColumnChart generated in R 3.3.1 by googleVis 0.6.0 package -->
 
-<!-- Fri Aug 12 00:22:33 2016 -->
+<!-- Fri Aug 12 00:29:13 2016 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataColumnChartIDe9288b7004 () {
+function gvisDataColumnChartIDece5b30d24 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1319,13 +1274,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartColumnChartIDe9288b7004() {
-var data = gvisDataColumnChartIDe9288b7004();
+function drawChartColumnChartIDece5b30d24() {
+var data = gvisDataColumnChartIDece5b30d24();
 var options = {};
 options["allowHtml"] = [true];
 
     var chart = new google.visualization.ColumnChart(
-    document.getElementById('ColumnChartIDe9288b7004')
+    document.getElementById('ColumnChartIDece5b30d24')
     );
     chart.draw(data,options);
     
@@ -1349,9 +1304,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartColumnChartIDe9288b7004);
+callbacks.push(drawChartColumnChartIDece5b30d24);
 })();
-function displayChartColumnChartIDe9288b7004() {
+function displayChartColumnChartIDece5b30d24() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1377,60 +1332,24 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartIDe9288b7004"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartIDece5b30d24"></script>
  
 
 <!-- divChart -->
 
-<div id="ColumnChartIDe9288b7004" 
+<div id="ColumnChartIDece5b30d24" 
   style="width: 500; height: automatic;">
 </div>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</article>
 
-    <slide class="backdrop"></slide>
-  </slides>
-  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
-    <ul>
-      <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Getting and Cleaning Data'>
-         1
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Summary of the dataset'>
-         2
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Visualization with World Map'>
-         3
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Data visualization for specific country'>
-         4
-      </a>
-    </li>
-  </ul>
-  </div>  <!--[if IE]>
-    <script 
-      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
-    </script>
-    <script>CFInstall.check({mode: 'overlay'});</script>
-  <![endif]-->
+  </section>
 </body>
-  <!-- Load Javascripts for Widgets -->
-  
-  <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
-   
-  </html>
+  <!-- LOAD JAVASCRIPTS  -->
+	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+	</html>
