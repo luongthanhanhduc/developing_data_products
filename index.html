@@ -1,1 +1,1436 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualization of some basic social-economic indicators</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Visualization of some basic social-economic indicators">
+  <meta name="author" content="Duc Thanh Anh Luong">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Visualization of some basic social-economic indicators</h1>
+    <h2></h2>
+    <p>Duc Thanh Anh Luong<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Getting and Cleaning Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The dataset was collected using the package <a href="https://cran.r-project.org/web/packages/WDI/WDI.pdf"><code>WDI</code></a>. There are 5 indicators we collected for this dataset: </p>
+
+<ol>
+<li>GDP per capita (current US dollar)</li>
+<li>GDP growth (as percentage of GDP in current US dollar)</li>
+<li>GNI per capita (current US dollar)</li>
+<li>Foreign direct investment (current US dollar)</li>
+<li>total population</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Summary of the dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Details about how we collected and clean the data can be found from the <a href="https://ducluong.shinyapps.io/visualization_social_economic_indicator/">documentation</a> in the website</p>
+
+<pre><code>##    country               year        population        GDP per capita    
+##  Length:11984       Min.   :1960   Min.   :4.279e+03   Min.   :     0.0  
+##  Class :character   1st Qu.:1974   1st Qu.:4.901e+05   1st Qu.:   457.1  
+##  Mode  :character   Median :1988   Median :4.125e+06   Median :  1614.7  
+##                     Mean   :1988   Mean   :2.392e+07   Mean   :  7255.3  
+##                     3rd Qu.:2001   3rd Qu.:1.304e+07   3rd Qu.:  6648.9  
+##                     Max.   :2015   Max.   :1.371e+09   Max.   :193648.1  
+##                                    NA&#39;s   :105         NA&#39;s   :3070      
+##    GDP growth      GNI per capita        FDI            
+##  Min.   :-64.047   Min.   :    40   Min.   :-3.582e+10  
+##  1st Qu.:  1.432   1st Qu.:   500   1st Qu.: 9.624e+06  
+##  Median :  3.925   Median :  1830   Median : 1.092e+08  
+##  Mean   :  3.928   Mean   :  7257   Mean   : 4.362e+09  
+##  3rd Qu.:  6.460   3rd Qu.:  7005   3rd Qu.: 1.046e+09  
+##  Max.   :189.830   Max.   :186710   Max.   : 7.340e+11  
+##  NA&#39;s   :3414      NA&#39;s   :4141     NA&#39;s   :4698        
+##     iso3c          
+##  Length:11984      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+##                    
+## 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Visualization with World Map</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Visualization of GDP per capita (current US dollar) at 2010</p>
+
+<pre><code>## Creating a generic function for &#39;toJSON&#39; from package &#39;jsonlite&#39; in package &#39;googleVis&#39;
+</code></pre>
+
+<pre><code class="r">map &lt;- gvisGeoChart(country_data[country_data$year == 2010,], locationvar=&quot;country&quot;, 
+                    colorvar=&quot;GDP per capita&quot;, options=list(projection=&quot;kavrayskiy-vii&quot;))
+print(map, &quot;chart&quot;)
+</code></pre>
+
+<!-- GeoChart generated in R 3.3.1 by googleVis 0.6.0 package -->
+
+<!-- Fri Aug 12 00:22:33 2016 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartIDe9233b5cbae () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Andorra",
+39639.38602 
+],
+[
+ "United Arab Emirates",
+34341.91129 
+],
+[
+ "Afghanistan",
+569.9407288 
+],
+[
+ "Antigua and Barbuda",
+13017.31039 
+],
+[
+ "Albania",
+4094.358832 
+],
+[
+ "Armenia",
+3124.784018 
+],
+[
+ "Angola",
+3886.479354 
+],
+[
+ "Argentina",
+11198.64257 
+],
+[
+ "American Samoa",
+null 
+],
+[
+ "Austria",
+46659.84082 
+],
+[
+ "Australia",
+51845.65486 
+],
+[
+ "Aruba",
+24289.14152 
+],
+[
+ "Azerbaijan",
+5842.805784 
+],
+[
+ "Bosnia and Herzegovina",
+4475.08813 
+],
+[
+ "Barbados",
+15901.43294 
+],
+[
+ "Bangladesh",
+760.3319352 
+],
+[
+ "Belgium",
+44382.87977 
+],
+[
+ "Burkina Faso",
+574.4580893 
+],
+[
+ "Bulgaria",
+6752.552178 
+],
+[
+ "Bahrain",
+20386.01756 
+],
+[
+ "Burundi",
+214.2309908 
+],
+[
+ "Benin",
+732.9536227 
+],
+[
+ "Bermuda",
+88207.32756 
+],
+[
+ "Brunei Darussalam",
+31453.2244 
+],
+[
+ "Bolivia",
+1981.160105 
+],
+[
+ "Brazil",
+11121.42095 
+],
+[
+ "Bahamas, The",
+21920.51659 
+],
+[
+ "Bhutan",
+2201.293078 
+],
+[
+ "Botswana",
+6244.002574 
+],
+[
+ "Belarus",
+5818.854859 
+],
+[
+ "Belize",
+4344.136669 
+],
+[
+ "Canada",
+47445.76193 
+],
+[
+ "Congo, Dem. Rep.",
+311.247896 
+],
+[
+ "Central African Republic",
+446.8002046 
+],
+[
+ "Congo, Rep.",
+2953.185008 
+],
+[
+ "Switzerland",
+74277.12051 
+],
+[
+ "Cote d'Ivoire",
+1236.085198 
+],
+[
+ "Chile",
+12785.05187 
+],
+[
+ "Cameroon",
+1147.242347 
+],
+[
+ "China",
+4514.94052 
+],
+[
+ "Colombia",
+6250.6545 
+],
+[
+ "Costa Rica",
+7985.951035 
+],
+[
+ "Cuba",
+5688.666732 
+],
+[
+ "Cabo Verde",
+3393.927492 
+],
+[
+ "Curacao",
+null 
+],
+[
+ "Cyprus",
+30438.90019 
+],
+[
+ "Czech Republic",
+19763.9638 
+],
+[
+ "Germany",
+41788.04479 
+],
+[
+ "Djibouti",
+1358.4605 
+],
+[
+ "Denmark",
+57647.66876 
+],
+[
+ "Dominica",
+6937.256084 
+],
+[
+ "Dominican Republic",
+5441.965749 
+],
+[
+ "Algeria",
+4473.486446 
+],
+[
+ "Ecuador",
+4657.301737 
+],
+[
+ "Estonia",
+14641.40314 
+],
+[
+ "Egypt, Arab Rep.",
+2668.035988 
+],
+[
+ "Eritrea",
+451.4266933 
+],
+[
+ "Spain",
+30737.83227 
+],
+[
+ "Ethiopia",
+341.8589562 
+],
+[
+ "Finland",
+46205.16601 
+],
+[
+ "Fiji",
+3651.958291 
+],
+[
+ "Micronesia, Fed. Sts.",
+2838.448547 
+],
+[
+ "Faroe Islands",
+47381.52276 
+],
+[
+ "France",
+40705.76623 
+],
+[
+ "Gabon",
+9312.049463 
+],
+[
+ "United Kingdom",
+38292.87113 
+],
+[
+ "Grenada",
+7365.666659 
+],
+[
+ "Georgia",
+2964.477048 
+],
+[
+ "Ghana",
+1323.099141 
+],
+[
+ "Greenland",
+40193.66603 
+],
+[
+ "Gambia, The",
+562.5681661 
+],
+[
+ "Guinea",
+430.0564739 
+],
+[
+ "Equatorial Guinea",
+17441.09255 
+],
+[
+ "Greece",
+26919.36164 
+],
+[
+ "Guatemala",
+2805.951416 
+],
+[
+ "Guam",
+null 
+],
+[
+ "Guinea-Bissau",
+518.5983608 
+],
+[
+ "Guyana",
+2998.941274 
+],
+[
+ "Hong Kong SAR, China",
+32549.99823 
+],
+[
+ "Honduras",
+2110.822021 
+],
+[
+ "Croatia",
+13509.18582 
+],
+[
+ "Haiti",
+662.2795182 
+],
+[
+ "Hungary",
+13009.34538 
+],
+[
+ "Indonesia",
+3125.219934 
+],
+[
+ "Ireland",
+48260.66536 
+],
+[
+ "Israel",
+30736.36389 
+],
+[
+ "Isle of Man",
+64277.06375 
+],
+[
+ "India",
+1387.880084 
+],
+[
+ "Iraq",
+4487.366289 
+],
+[
+ "Iran, Islamic Rep.",
+6299.918738 
+],
+[
+ "Iceland",
+41620.06745 
+],
+[
+ "Italy",
+35851.50807 
+],
+[
+ "Jamaica",
+4902.034731 
+],
+[
+ "Jordan",
+4054.270668 
+],
+[
+ "Japan",
+42935.25272 
+],
+[
+ "Kenya",
+991.8505451 
+],
+[
+ "Kyrgyz Republic",
+880.0377751 
+],
+[
+ "Cambodia",
+782.6927899 
+],
+[
+ "Kiribati",
+1465.504574 
+],
+[
+ "Comoros",
+739.8977906 
+],
+[
+ "St. Kitts and Nevis",
+13226.95231 
+],
+[
+ "Korea, Dem. People’s Rep.",
+null 
+],
+[
+ "Korea, Rep.",
+22151.20889 
+],
+[
+ "Kuwait",
+37725.14121 
+],
+[
+ "Cayman Islands",
+null 
+],
+[
+ "Kazakhstan",
+9070.649972 
+],
+[
+ "Lao PDR",
+1147.095387 
+],
+[
+ "Lebanon",
+8763.795964 
+],
+[
+ "St. Lucia",
+7043.506936 
+],
+[
+ "Liechtenstein",
+140101.9673 
+],
+[
+ "Sri Lanka",
+2819.651309 
+],
+[
+ "Liberia",
+326.6044381 
+],
+[
+ "Lesotho",
+1087.98277 
+],
+[
+ "Lithuania",
+11988.75797 
+],
+[
+ "Luxembourg",
+103267.2765 
+],
+[
+ "Latvia",
+11319.517 
+],
+[
+ "Libya",
+11933.77926 
+],
+[
+ "Morocco",
+2857.673414 
+],
+[
+ "Monaco",
+145221.1916 
+],
+[
+ "Moldova",
+1631.535832 
+],
+[
+ "Montenegro",
+6682.281158 
+],
+[
+ "St. Martin (French part)",
+null 
+],
+[
+ "Madagascar",
+414.1427872 
+],
+[
+ "Marshall Islands",
+3124.343448 
+],
+[
+ "Macedonia, FYR",
+4561.177546 
+],
+[
+ "Mali",
+704.0646209 
+],
+[
+ "Myanmar",
+null 
+],
+[
+ "Mongolia",
+2650.346885 
+],
+[
+ "Macao SAR, China",
+52604.32713 
+],
+[
+ "Northern Mariana Islands",
+null 
+],
+[
+ "Mauritania",
+1207.827458 
+],
+[
+ "Malta",
+19694.08316 
+],
+[
+ "Mauritius",
+7772.100057 
+],
+[
+ "Maldives",
+6330.79498 
+],
+[
+ "Malawi",
+471.2077524 
+],
+[
+ "Mexico",
+8861.49372 
+],
+[
+ "Malaysia",
+9069.041757 
+],
+[
+ "Mozambique",
+417.5012315 
+],
+[
+ "Namibia",
+5143.130676 
+],
+[
+ "New Caledonia",
+null 
+],
+[
+ "Niger",
+351.0062183 
+],
+[
+ "Nigeria",
+2314.963537 
+],
+[
+ "Nicaragua",
+1523.481469 
+],
+[
+ "Netherlands",
+50341.25192 
+],
+[
+ "Norway",
+87646.2701 
+],
+[
+ "Nepal",
+595.4275198 
+],
+[
+ "Nauru",
+null 
+],
+[
+ "New Zealand",
+33692.1696 
+],
+[
+ "Oman",
+19920.64957 
+],
+[
+ "Panama",
+7987.060372 
+],
+[
+ "Peru",
+5056.295313 
+],
+[
+ "French Polynesia",
+null 
+],
+[
+ "Papua New Guinea",
+1418.923591 
+],
+[
+ "Philippines",
+2145.240007 
+],
+[
+ "Pakistan",
+1043.300205 
+],
+[
+ "Poland",
+12597.45879 
+],
+[
+ "Puerto Rico",
+26435.73308 
+],
+[
+ "West Bank and Gaza",
+2338.719877 
+],
+[
+ "Portugal",
+22539.99601 
+],
+[
+ "Palau",
+8978.993649 
+],
+[
+ "Paraguay",
+3225.591754 
+],
+[
+ "Qatar",
+70870.22658 
+],
+[
+ "Romania",
+8297.483621 
+],
+[
+ "Serbia",
+5411.877404 
+],
+[
+ "Russian Federation",
+10674.9972 
+],
+[
+ "Rwanda",
+553.5974576 
+],
+[
+ "Saudi Arabia",
+18753.98123 
+],
+[
+ "Solomon Islands",
+1276.348513 
+],
+[
+ "Seychelles",
+10804.68447 
+],
+[
+ "Sudan",
+1421.532942 
+],
+[
+ "Sweden",
+52076.43052 
+],
+[
+ "Singapore",
+46569.67951 
+],
+[
+ "Slovenia",
+23438.84716 
+],
+[
+ "Slovak Republic",
+16554.8788 
+],
+[
+ "Sierra Leone",
+453.0220407 
+],
+[
+ "San Marino",
+null 
+],
+[
+ "Senegal",
+998.1196955 
+],
+[
+ "Somalia",
+null 
+],
+[
+ "Suriname",
+8430.905965 
+],
+[
+ "South Sudan",
+1563.904195 
+],
+[
+ "Sao Tome and Principe",
+1142.182311 
+],
+[
+ "El Salvador",
+3547.070983 
+],
+[
+ "Sint Maarten (Dutch part)",
+null 
+],
+[
+ "Syrian Arab Republic",
+null 
+],
+[
+ "Swaziland",
+2956.696795 
+],
+[
+ "Turks and Caicos Islands",
+null 
+],
+[
+ "Chad",
+895.8779959 
+],
+[
+ "Togo",
+496.4824942 
+],
+[
+ "Thailand",
+5111.909202 
+],
+[
+ "Tajikistan",
+744.1898922 
+],
+[
+ "Timor-Leste",
+875.8365693 
+],
+[
+ "Turkmenistan",
+4479.012354 
+],
+[
+ "Tunisia",
+4176.59159 
+],
+[
+ "Tonga",
+3557.737184 
+],
+[
+ "Turkey",
+10111.5177 
+],
+[
+ "Trinidad and Tobago",
+15840.44269 
+],
+[
+ "Tuvalu",
+3238.375763 
+],
+[
+ "Tanzania",
+708.5219323 
+],
+[
+ "Ukraine",
+2973.996481 
+],
+[
+ "Uganda",
+608.8130239 
+],
+[
+ "United States",
+48374.08679 
+],
+[
+ "Uruguay",
+11938.27505 
+],
+[
+ "Uzbekistan",
+1377.08214 
+],
+[
+ "St. Vincent and the Grenadines",
+6231.713226 
+],
+[
+ "Venezuela, RB",
+13581.35338 
+],
+[
+ "British Virgin Islands",
+null 
+],
+[
+ "Virgin Islands (U.S.)",
+null 
+],
+[
+ "Vietnam",
+1333.583526 
+],
+[
+ "Vanuatu",
+2965.75223 
+],
+[
+ "Samoa",
+3530.573994 
+],
+[
+ "Yemen, Rep.",
+1310.053839 
+],
+[
+ "South Africa",
+7392.868752 
+],
+[
+ "Zambia",
+1456.126526 
+],
+[
+ "Zimbabwe",
+674.2686954 
+] 
+];
+data.addColumn('string','country');
+data.addColumn('number','GDP.per.capita');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartIDe9233b5cbae() {
+var data = gvisDataGeoChartIDe9233b5cbae();
+var options = {};
+options["width"] = [556];
+options["height"] = [347];
+options["projection"] = ["kavrayskiy-vii"];
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartIDe9233b5cbae')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartIDe9233b5cbae);
+})();
+function displayChartGeoChartIDe9233b5cbae() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartIDe9233b5cbae"></script>
+ 
+
+<!-- divChart -->
+
+<div id="GeoChartIDe9233b5cbae" 
+  style="width: 556; height: 347;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Data visualization for specific country</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Visualization of GDP growth of Vietnam</p>
+
+<pre><code class="r">chart &lt;- gvisColumnChart(data = country_data[country_data$country == &quot;Vietnam&quot;, ], 
+                         xvar = &quot;year&quot;, yvar = &quot;GDP growth&quot;)
+print(chart, &quot;chart&quot;)
+</code></pre>
+
+<!-- ColumnChart generated in R 3.3.1 by googleVis 0.6.0 package -->
+
+<!-- Fri Aug 12 00:22:33 2016 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataColumnChartIDe9288b7004 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ 1972,
+null 
+],
+[
+ 1971,
+null 
+],
+[
+ 2003,
+6.899063492 
+],
+[
+ 1999,
+4.773586881 
+],
+[
+ 1973,
+null 
+],
+[
+ 2002,
+6.320820988 
+],
+[
+ 1970,
+null 
+],
+[
+ 2004,
+7.536410612 
+],
+[
+ 2005,
+7.547247727 
+],
+[
+ 2000,
+6.787316408 
+],
+[
+ 2001,
+6.192893312 
+],
+[
+ 1998,
+5.764455464 
+],
+[
+ 2011,
+6.240302749 
+],
+[
+ 1962,
+null 
+],
+[
+ 2006,
+6.977954812 
+],
+[
+ 1960,
+null 
+],
+[
+ 1961,
+null 
+],
+[
+ 2007,
+7.129504484 
+],
+[
+ 2008,
+5.661771208 
+],
+[
+ 2009,
+5.397897543 
+],
+[
+ 2010,
+6.423238217 
+],
+[
+ 1997,
+8.152084143 
+],
+[
+ 2012,
+5.247367156 
+],
+[
+ 2013,
+5.421882991 
+],
+[
+ 1974,
+null 
+],
+[
+ 1975,
+null 
+],
+[
+ 1976,
+null 
+],
+[
+ 1963,
+null 
+],
+[
+ 1964,
+null 
+],
+[
+ 1965,
+null 
+],
+[
+ 1978,
+null 
+],
+[
+ 1966,
+null 
+],
+[
+ 1967,
+null 
+],
+[
+ 1968,
+null 
+],
+[
+ 1969,
+null 
+],
+[
+ 1996,
+9.340017496 
+],
+[
+ 1983,
+null 
+],
+[
+ 1984,
+null 
+],
+[
+ 2014,
+5.983654637 
+],
+[
+ 2015,
+6.679288789 
+],
+[
+ 1987,
+3.583469633 
+],
+[
+ 1988,
+5.135011671 
+],
+[
+ 1977,
+null 
+],
+[
+ 1991,
+5.960843932 
+],
+[
+ 1979,
+null 
+],
+[
+ 1980,
+null 
+],
+[
+ 1981,
+null 
+],
+[
+ 1982,
+null 
+],
+[
+ 1986,
+2.789291575 
+],
+[
+ 1992,
+8.64604746 
+],
+[
+ 1993,
+8.072730657 
+],
+[
+ 1985,
+3.805855668 
+],
+[
+ 1990,
+5.10091814 
+],
+[
+ 1989,
+7.364512893 
+],
+[
+ 1995,
+9.540480175 
+],
+[
+ 1994,
+8.838980952 
+] 
+];
+data.addColumn('number','year');
+data.addColumn('number','GDP growth');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartColumnChartIDe9288b7004() {
+var data = gvisDataColumnChartIDe9288b7004();
+var options = {};
+options["allowHtml"] = [true];
+
+    var chart = new google.visualization.ColumnChart(
+    document.getElementById('ColumnChartIDe9288b7004')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartColumnChartIDe9288b7004);
+})();
+function displayChartColumnChartIDe9288b7004() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartIDe9288b7004"></script>
+ 
+
+<!-- divChart -->
+
+<div id="ColumnChartIDe9288b7004" 
+  style="width: 500; height: automatic;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Getting and Cleaning Data'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Summary of the dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Visualization with World Map'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Data visualization for specific country'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
